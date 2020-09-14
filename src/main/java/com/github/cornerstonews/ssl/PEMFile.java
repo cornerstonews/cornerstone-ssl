@@ -142,6 +142,8 @@ public class PEMFile {
             keySpec = new PKCS8EncodedKeySpec(this.pemContent);
             break;
         }
+        default:
+            throw new RuntimeException("Invalid PRIVATE KEY TYPE");
         }
 
         InvalidKeyException exception = new InvalidKeyException("Could not parse private key file: " + filename);
